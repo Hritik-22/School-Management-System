@@ -11,7 +11,12 @@ const PORT = 5000
 dotenv.config();
 
 app.use(express.json({ limit: '10mb' }))
-app.use(cors())
+app.use(cors({
+    origin: "*", // Allow all origins (for testing)
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 
 const URL = "mongodb+srv://ritikdubey935:YU6SxHPj3R3tjnh0@test.o9x6g.mongodb.net/?retryWrites=true&w=majority&appName=test"
 
